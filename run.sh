@@ -1,0 +1,1 @@
+DISCORD_TOKEN=<token goes here> python3 main.py
