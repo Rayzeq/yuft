@@ -394,6 +394,9 @@ class Covoiturage(app_commands.Group):
         for i, rank in enumerate(ranks[:10]):
             lines.append(f"#{i + 1} {rank.owner} - {rank.proposed} proposés, {rank.participated} pris")
 
+        if lines == []:
+            lines = ["Il n'y a personne pour le moment"]
+
         await interaction.response.send_message(
             "\n".join(lines),
             ephemeral=invisible,
