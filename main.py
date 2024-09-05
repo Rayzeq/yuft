@@ -253,13 +253,13 @@ class Covoiturage(app_commands.Group):
         )
 
     @app_commands.describe(ids_longs="Affiche les IDs entier, utile si plusieurs covoiturages ont le même id raccourci")
-    @app_commands.describe(invisible="Vous seul pourrez voir la liste")
+    @app_commands.describe(invisible="Vous seul pourrez voir la liste (activé par défaut)")
     async def _liste(
         self: Covoiturage,
         interaction: discord.Interaction[discord.Client],
         *,
         ids_longs: bool = False,
-        invisible: bool = False,
+        invisible: bool = True,
     ) -> None:
         """Lister les covoiturage existant."""
         entries = await client.carpool_database.fetch_all()
